@@ -1,0 +1,25 @@
+class Solution {
+public:
+    string sortSentence(string s) {
+        string word;
+        int i,n=s.size();
+        vector<string>v(10);
+        for(i=0;i<n;i++){
+		// because ASCII value of numbers ranges from 48 to 57 in C++. 
+        if(s[i]>=48 && s[i]<=57){ 
+            v[s[i]-48] = word +" ";  //(Ascii value of no. - 48)
+            word="";  //we empty the word for next iteration.
+            i++;  //for moving to the next word    
+            }
+            else word +=s[i];
+        }
+        string ans;
+        for(string x:v){
+            ans+=x;
+        }
+        ans.pop_back(); //This to remove the additional extra space at the end of the sentence
+        return ans;
+    
+        
+    }
+};
